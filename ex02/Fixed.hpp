@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/27 17:29:32 by agan              #+#    #+#             */
-/*   Updated: 2024/03/28 15:59:17 by agan             ###   ########.fr       */
+/*   Created: 2024/04/03 14:30:50 by agan              #+#    #+#             */
+/*   Updated: 2024/04/03 14:30:51 by agan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ private:
 	static const int __fractionalBits = 8;
 
 public:
+	// constructors and destructors
 	Fixed();
 	Fixed(const int integer);
 	Fixed(const float floating_point);
@@ -30,6 +31,33 @@ public:
 	Fixed &operator=(const Fixed &other);
 	~Fixed();
 
+	// comparison operators
+	bool operator> (const Fixed &val) const;
+	bool operator< (const Fixed &val) const;
+	bool operator>= (const Fixed &val) const;
+	bool operator<= (const Fixed &val) const;
+	bool operator== (const Fixed &val) const;
+	bool operator!= (const Fixed &val) const;
+
+	// arithmetic operators
+	Fixed operator+ (const Fixed &val) const;
+	Fixed operator- (const Fixed &val) const;
+	Fixed operator* (const Fixed &val) const;
+	Fixed operator/ (const Fixed &val) const;
+	
+	// increment/decrement operators
+	Fixed operator++ (int); // postincrement
+	Fixed operator-- (int);
+	Fixed &operator++ (); // preincrement
+	Fixed &operator-- ();
+
+	// minmax functions
+	static Fixed &min(Fixed &f1, Fixed &f2);
+	static const Fixed &min(const Fixed &f1, const Fixed &f2);
+	static Fixed &max(Fixed &f1, Fixed &f2);
+	static const Fixed &max(const Fixed &f1, const Fixed &f2);
+
+	// member functions
 	int	getRawBits( void ) const;
 	void setRawBits( int const raw );
 	float toFloat( void ) const;
