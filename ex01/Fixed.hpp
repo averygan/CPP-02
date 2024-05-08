@@ -23,11 +23,15 @@ private:
 	static const int __fractionalBits = 8;
 
 public:
+// Constructor
 	Fixed();
 	Fixed(const int integer);
 	Fixed(const float floating_point);
 	Fixed(const Fixed &other);
+// Overloaded operator
 	Fixed &operator=(const Fixed &other);
+
+// Destructor
 	~Fixed();
 
 	int	getRawBits( void ) const;
@@ -36,6 +40,6 @@ public:
 	int	toInt( void ) const;
 };
 
-std::ostream& operator <<(std::ostream& os, const Fixed& val);
+std::ostream& operator <<(std::ostream& os, Fixed const &val);
 
 #endif

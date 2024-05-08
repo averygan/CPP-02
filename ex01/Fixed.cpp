@@ -13,9 +13,8 @@
 #include "Fixed.hpp"
 
 /* Default constructor */
-Fixed::Fixed()
+Fixed::Fixed() : value(0)
 {
-	value = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -42,14 +41,14 @@ Fixed::Fixed(const float floating_point)
 }
 
 /* Copy constructor */
-Fixed::Fixed(Fixed const &other)
+Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	value = other.getRawBits();
+	*this = other;
 }
 
 /* Copy assignment operator overload */
-Fixed& Fixed::operator=(const Fixed &other)
+Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->value = other.getRawBits();
@@ -75,19 +74,23 @@ void Fixed::setRawBits( int const raw )
 	this->value = raw;
 }
 
-/* Converts fixed-point value to a floating-point value */
+/* Converts fixed-point value to a floating-point value 
+bitwise operation represents scaling factor to convert fixed point to floating point
+static_cast: explicit type conversion
+division scales fixed point back to floating point */
 float Fixed::toFloat( void ) const
 {
 	return static_cast<float>(this->value) / (1 << __fractionalBits);
 }
 
-/* Converts fixed-point value to an integer value */
+/* Converts fixed-point value to an integer value 
+bitwise right shift to truncate fractional part */
 int Fixed::toInt( void ) const
 {
 	return this->value >> __fractionalBits;
 }
 
-std::ostream& operator <<(std::ostream& os, const Fixed& val)
+std::ostream& operator <<(std::ostream& os, Fixed const &val)
 {
 	os << val.toFloat();
 	return (os);
