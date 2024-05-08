@@ -48,12 +48,12 @@ int main(void)
 	Point c4(20, 0);
 	Point p4(20, -1);
 
-	Point a5(10, 30);
+	Point a5(2, 30);
 	Point b5(0, 0);
 	Point c5(20, 0);
 	Point p5(-3, 0);
 
-	Point a6(10, 30);
+	Point a6(3, 30);
 	Point b6(0, 0);
 	Point c6(20, 0);
 	Point p6(-2, 3);
@@ -66,42 +66,3 @@ int main(void)
 	std::cout << "Test Case 6: " << (bsp(a6, b6, c6, p6) ? red + "Incorrect" : green + "Correct") << white << std::endl;
 }
 
-// void runTestCases(const std::string& label, const Point& a, const Point& b, const Point& c, const Point& p, bool insideCase) 
-// {
-// 	std::string green = "\033[0;32m";
-//     std::string red = "\033[0;31m";
-//     std::string white = "\033[0;37m";
-
-// 	if (insideCase)
-//    		std::cout << label << (bsp(a, b, c, p) ? green + "Correct" : red + "Incorrect") << white << std::endl;
-// 	else
-// 	   	std::cout << label << (bsp(a, b, c, p) ? red + "Incorrect" : green + "Correct") << white << std::endl;
-// }
-
-// int main(void) {
-//     std::vector<std::tuple<std::string, Point, Point, Point, Point>> insideCases = {
-//         {"Test Case 1: ", {10, 30}, {0, 0}, {20, 0}, {15, 5}},
-//         {"Test Case 2: ", {10, 30}, {0, 0}, {20, 0}, {12, 8}},
-//         {"Test Case 3: ", {10, 30}, {0, 0}, {20, 0}, {18, 3}},
-//     };
-
-//     std::vector<std::tuple<std::string, Point, Point, Point, Point>> outsideCases = {
-// 	    {"Test Case 4: ", {10, 30}, {0, 0}, {20, 0}, {20, -1}},
-//         {"Test Case 5: ", {2, 5}, {0, 0}, {20, 0}, {-3, 0}},
-//         {"Test Case 6: ", {8, 16}, {0, 0}, {20, 0}, {-2, 5}},
-//     };
-
-//     std::cout << "Point inside triangle\n";
-//     std::cout << "\n---------------------------------------------------------------------\n" << std::endl;
-//     for (const auto& insideCase : insideCases) {
-//         runTestCases(std::get<0>(insideCase), std::get<1>(insideCase), std::get<2>(insideCase), std::get<3>(insideCase), std::get<4>(insideCase), true);
-//     }
-
-//     std::cout << std::endl << "Point outside triangle\n";
-//     std::cout << "\n---------------------------------------------------------------------\n" << std::endl;
-//     for (const auto& outsideCase : outsideCases) {
-//         runTestCases(std::get<0>(outsideCase), std::get<1>(outsideCase), std::get<2>(outsideCase), std::get<3>(outsideCase), std::get<4>(outsideCase), false);
-//     }
-
-//     return 0;
-// }

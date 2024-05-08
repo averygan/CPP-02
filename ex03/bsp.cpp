@@ -13,7 +13,13 @@
 #include "Point.hpp"
 #include "Fixed.hpp"
 
-/* Function to calculate area of triangle formed by (x1,y1) (x2,y2) (x3,y3)*/
+/* Function to calculate area of triangle formed by (x1,y1) (x2,y2) (x3,y3)
+Using shoelace formula/method of triangulation 
+- Calculates signed area of the triangle formed by vertex and two other vertices
+	Given area = 1/2 * base * height
+	- Base = difference in y coords
+	- Height = distance from vertex to opp side
+- Sums up the signed areas of three triangles and takes abs value */
 float area(float x1, float y1, float x2, float y2, float x3, float y3)
 {
 	return abs((x1 * (y2 - y3) + x2 * (y3-y1) + x3 * (y1-y2)) / 2.0);
