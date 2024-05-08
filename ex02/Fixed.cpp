@@ -145,10 +145,13 @@ bool Fixed::operator!= (const Fixed &val) const
 	return (this->value != val.value);
 }
 
+/* arithmetic operators 
+bitwise right shift by fractionalbits to divide by 2^fractionalbits
+removes fractional parts to convert to floating point representation */
 Fixed Fixed::operator+ (const Fixed &val) const
 {
 	Fixed tmp;
-	tmp.value = (this->value +val.value) >> __fractionalBits;
+	tmp.value = (this->value + val.value) >> __fractionalBits;
 	return tmp;
 }
 
